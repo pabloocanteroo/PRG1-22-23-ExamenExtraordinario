@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class hojaCalculo {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
@@ -9,6 +10,7 @@ public class hojaCalculo {
     int [] posicionJugador = {0,0};
     boolean terminar = false;
     String texto;
+    int contador=1;
      System.out.println("+------------------------------------------------------------------------+");
     System.out.println("|  |   A  |   B  |   C  |   D  |   E  |   F  |   G  |   H  |   I  |   J  |");
     System.out.println("+------------------------------------------------------------------------+");
@@ -50,6 +52,7 @@ public class hojaCalculo {
     System.out.println("+------------------------------------------------------------------------+");
     System.out.println("|  |   A  |   B  |   C  |   D  |   E  |   F  |   G  |   H  |   I  |   J  |");
     System.out.println("+------------------------------------------------------------------------+");
+    
     for(int i=0;i<hojaCalculo.length;i++){
         if(i<10)
         {System.out.print("| "+ i +"|");
@@ -59,18 +62,23 @@ public class hojaCalculo {
         
         for(int j=0;j<hojaCalculo[i].length;j++){
 
+            for(int k=1;k<contador;k++){
+                if(hojaCalculo[i][j]==k){
+                    System.out.print(texto);
+                }
+            }
+
             if(posicionJugador[0]==i&&posicionJugador[1]==j){
                 System.out.print("[____]");
-                hojaCalculo[i][j]=3;
+                hojaCalculo[i][j]=contador++;
 
             }else{
                 System.out.print("      ");
                 hojaCalculo[i][j]=0;
             }
+            
             System.out.print("|");
-            if(hojaCalculo[i][j]==3){
-                System.out.print("texto");
-            }
+            
         }
         System.out.println();
     }
