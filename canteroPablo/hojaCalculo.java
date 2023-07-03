@@ -10,8 +10,8 @@ public class hojaCalculo {
     boolean terminar = false;
     do{
 
-    System.out.println("+-------------------------------------------------------------------------+");
-    System.out.println("|   A   |   B   |   C   |   D   |   E   |   F   |   G   |   H   |   I   |    J   |");
+    System.out.println("+------------------------------------------------------------------------+");
+    System.out.println("|  |   A  |   B  |   C  |   D  |   E  |   F  |   G  |   H  |   I  |   J  |");
     System.out.println("+-------------------------------------------------------------------------+");
     for(int i=0;i<hojaCalculo.length;i++){
         if(i<10)
@@ -19,19 +19,20 @@ public class hojaCalculo {
         }else{
             System.out.print("|"+ i +"|");
         }
+        
         for(int j=0;j<hojaCalculo[i].length;j++){
             if(posicionJugador[0]==i&&posicionJugador[1]==j){
                 System.out.print("[____]");
             }else{
-                System.out.print("    ");
+                System.out.print("      ");
             }
             hojaCalculo[i][j]=0;
-            System.out.print("    |");
+            System.out.print("|");
         }
         System.out.println();
     }
     System.out.println("+-------------------------------------------------------------------------+");
-    System.out.println("|   | X: "+posicionJugador[0]+" | Y: "+posicionJugador[1]+" |");
+    System.out.println("|   | Y: "+posicionJugador[0]+" | X: "+posicionJugador[1]+" |");
     System.out.println("+-------------------------------------------------------------------------+");
     System.out.println("WASD para moverse o f para salir");
     System.out.println("Introduce una tecla");
@@ -52,6 +53,17 @@ public class hojaCalculo {
                 case 'f', 'F':
                     terminar = true;
             }
+        if(posicionJugador[0]<0){
+            posicionJugador[0]=0;
+        }else if(posicionJugador[0]>14){
+            posicionJugador[0]=14;
+        }else if(posicionJugador[1]<0){
+            posicionJugador[1]=0;
+        }else if(posicionJugador[1]>9){
+            posicionJugador[1]=9;
+        }
+    System.out.println("¿Que quieres escribir?");
+    
     }while(terminar==false);
     }
 }
