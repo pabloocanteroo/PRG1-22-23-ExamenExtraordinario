@@ -5,20 +5,36 @@ public class hojaCalculo {
         char inputUsuario;
     int columnas = 10;
     int filas=15;
-    int [][] hojaCalculo = new int [columnas][filas];
-    int [] posicionJugador = {1,1};
+    int [][] hojaCalculo = new int [filas][columnas];
+    int [] posicionJugador = {0,0};
     boolean terminar = false;
+    do{
 
     System.out.println("+-------------------------------------------------------------------------+");
     System.out.println("|   A   |   B   |   C   |   D   |   E   |   F   |   G   |   H   |   I   |    J   |");
     System.out.println("+-------------------------------------------------------------------------+");
     for(int i=0;i<hojaCalculo.length;i++){
+        if(i<10)
+        {System.out.print("| "+ i +"|");
+        }else{
+            System.out.print("|"+ i +"|");
+        }
         for(int j=0;j<hojaCalculo[i].length;j++){
+            if(posicionJugador[0]==i&&posicionJugador[1]==j){
+                System.out.print("[____]");
+            }else{
+                System.out.print("    ");
+            }
             hojaCalculo[i][j]=0;
             System.out.print("    |");
         }
         System.out.println();
     }
+    System.out.println("+-------------------------------------------------------------------------+");
+    System.out.println("|   | X: "+posicionJugador[0]+" | Y: "+posicionJugador[1]+" |");
+    System.out.println("+-------------------------------------------------------------------------+");
+    System.out.println("WASD para moverse o f para salir");
+    System.out.println("Introduce una tecla");
     inputUsuario = entrada.nextLine().charAt(0);
             switch (inputUsuario) {
                 case 's', 'S', '8':
@@ -36,5 +52,6 @@ public class hojaCalculo {
                 case 'f', 'F':
                     terminar = true;
             }
-}
+    }while(terminar==false);
+    }
 }
